@@ -29,7 +29,7 @@ CREATE TABLE dates (
      PRIMARY KEY (id),
      FOREIGN KEY (categoria_id) REFERENCES categorias(id)
  );
---iva y total son derivables. Se pide almacenar el subtotal
+--iva y total son derivables. Se pide almacenar el subtotal. Para efectos practicos se asume el id como el número de factura.
  CREATE TABLE facturas (
      id SERIAL,
      fecha DATE NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE dates (
      FOREIGN KEY (cliente_id) REFERENCES clientes(id),
      FOREIGN KEY (fecha) REFERENCES dates(dates)
  );
-
+--total_producto es derivable, pero se pide registrar
  CREATE TABLE facturas_productos (
      factura_id INT NOT NULL,
      producto_id INT NOT NULL,
@@ -55,9 +55,6 @@ CREATE TABLE dates (
 \copy productos(nombre,precio_unitario,descripcion,categoria_id) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/productos.csv' CSV HEADER;
 \copy facturas(fecha,cliente_id,subtotal) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/facturas.csv' CSV HEADER;
 \copy facturas_productos(factura_id,producto_id,cantidad,total_producto) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/facturas_productos.csv' CSV HEADER;
-
-SELECT * FROM clientes;
-SELECT * FROM categorias;
 
 --¿Que cliente realizó la compra más cara? (Si más de un cliente comparten la compra más cara, se mostrarán ambos clientes)
 SELECT DISTINCT (nombre) FROM clientes INNER JOIN facturas ON clientes.id=facturas.cliente_id WHERE subtotal IN (SELECT MAX (subtotal) FROM facturas);
