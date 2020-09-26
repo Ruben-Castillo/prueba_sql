@@ -1,9 +1,9 @@
-nombre,precio_unitario,descripcion,categoria_id
-Filtro de aceite,50,Lorem,1
-Filtro de combustible,60,Lorem,1
-Motor QSK60,90000,Lorem,2
-Motor QSK78,100000,Lorem,2
-Motor QSB6.7,60000,Lorem,2
-Cilindro levante de tolva,20000,Lorem,3
-Cilindro de dirección,15000,Lorem,3
-Cilindro Boom PC 8000,40000,Lorem,3
+nombre,precio_unitario,descripcion
+Filtro de aceite,50,Lorem
+Filtro de combustible,60,Lorem
+Motor QSK60,90000,Lorem
+Motor QSK78,100000,Lorem
+Motor QSB6.7,60000,Lorem
+Cilindro levante de tolva,20000,Lorem
+Cilindro de dirección,15000,Lorem
+Cilindro Boom PC 8000,40000,Lorem
