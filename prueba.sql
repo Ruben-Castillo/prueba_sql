@@ -52,14 +52,14 @@ CREATE TABLE dates (
      FOREIGN KEY(categoria_id) REFERENCES categorias(id)
  );
  --Por la cantidad de INSERT me pareció más eficiente importar desde archivos CSV
-\copy dates(dates) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/dates.csv' CSV;
-\copy clientes(nombre,rut,direccion) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/clientes.csv' CSV HEADER;
-\copy categorias(nombre,descripcion) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/categorias.csv' CSV HEADER;
-\copy productos(nombre,precio_unitario,descripcion) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/productos.csv' CSV HEADER;
-\copy facturas(fecha) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/facturas.csv' CSV HEADER;
-\copy facturas_clientes(factura_id,cliente_id) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/facturas_clientes.csv' CSV HEADER;
-\copy productos_categorias(producto_id,categoria_id) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/productos_categorias.csv' CSV HEADER;
-\copy facturas_productos(factura_id,producto_id,cantidad) FROM '~/Documentos/DESAFIO_LATAM/Modulo_3/prueba/facturas_productos.csv' CSV HEADER;
+\copy dates(dates) FROM './dates.csv' CSV;
+\copy clientes(nombre,rut,direccion) FROM './clientes.csv' CSV HEADER;
+\copy categorias(nombre,descripcion) FROM './categorias.csv' CSV HEADER;
+\copy productos(nombre,precio_unitario,descripcion) FROM './productos.csv' CSV HEADER;
+\copy facturas(fecha) FROM './facturas.csv' CSV HEADER;
+\copy facturas_clientes(factura_id,cliente_id) FROM './facturas_clientes.csv' CSV HEADER;
+\copy productos_categorias(producto_id,categoria_id) FROM './productos_categorias.csv' CSV HEADER;
+\copy facturas_productos(factura_id,producto_id,cantidad) FROM './facturas_productos.csv' CSV HEADER;
 --Calcular el total por producto:
 ALTER TABLE facturas_productos ADD COLUMN total_producto INT;
 UPDATE facturas_productos SET total_producto=cantidad*t.c
